@@ -12,6 +12,7 @@
 		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<ektorp.version>1.4.2</ektorp.version>
 		 <hibernate.version>4.3.5.Final</hibernate.version>
 	</properties>
 	<dependencies>
@@ -198,6 +199,23 @@
         	<groupId>org.springframework</groupId>
         	<artifactId>spring-test</artifactId>
         	<version>${org.springframework-version}</version>
+        </dependency>
+        
+        
+        <dependency>
+			<groupId>org.ektorp</groupId>
+			<artifactId>org.ektorp</artifactId>
+			<version>${ektorp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ektorp</groupId>
+			<artifactId>org.ektorp.spring</artifactId>
+			<version>${ektorp.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
         </dependency>
 	</dependencies>
     <build>

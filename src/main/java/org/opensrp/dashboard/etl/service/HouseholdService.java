@@ -7,7 +7,7 @@ import org.opensrp.dashboard.etl.repository.HouseholdRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public class HouseholdService  {
+public class HouseholdService {
 	
 	private HouseholdRepository householdRepository;
 	
