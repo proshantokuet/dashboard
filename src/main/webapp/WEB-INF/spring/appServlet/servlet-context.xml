@@ -50,6 +50,8 @@
         <property name="annotatedClasses">
             <list>
                 <value>org.opensrp.dashboard.etl.entity.HouseholdEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.MarkerEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.ElcoEntity</value>
                 
             </list>
         </property>
@@ -70,6 +72,23 @@
      <bean name="householdService" class="org.opensrp.dashboard.etl.service.HouseholdService">
         <property name="householdRepository" ref="householdRepository"></property>
     </bean>
+    
+     <bean name="markerRepository" class="org.opensrp.dashboard.etl.repository.MarkerRepository">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+        
+    </bean>
+     <bean name="markerService" class="org.opensrp.dashboard.etl.service.MarkerService">
+        <property name="markerRepository" ref="markerRepository"></property>
+    </bean>
+    
+    <bean name="elcoRepository" class="org.opensrp.dashboard.etl.repository.ElcoRepository">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+        
+    </bean>
+     <bean name="elcoService" class="org.opensrp.dashboard.etl.service.ElcoService">
+        <property name="elcoRepository" ref="elcoRepository"></property>
+    </bean>
+    
      <bean name="homeController" class="org.opensrp.dashboard.etl.controller.HomeController">
         <property name="householdService" ref="householdService"></property>
     </bean>
@@ -81,7 +100,7 @@
 		</bean>
 
 		<mvc:annotation-driven></mvc:annotation-driven>
-		<tx:annotation-driven />
+		<tx:annotation-driven proxy-target-class = "true" />
 		
 		
 		

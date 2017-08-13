@@ -10,14 +10,15 @@
 		/WEB-INF/spring/repository-context.xml
 		/WEB-INF/spring/service-context.xml
 		/WEB-INF/spring/appServlet/servlet-context.xml
+		/WEB-INF/spring/listener-context.xml
 		
 		</param-value>
 	</context-param>
-	<context-param>
+	<!-- <context-param>
 	
 	<param-name>spring.profiles.active</param-name>
 	<param-value>production</param-value>
-	</context-param>
+	</context-param> -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

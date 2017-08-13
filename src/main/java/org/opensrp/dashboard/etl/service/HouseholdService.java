@@ -1,13 +1,10 @@
 package org.opensrp.dashboard.etl.service;
 
-
-
-import org.opensrp.dashboard.etl.entity.HouseholdEntity;
+import org.json.JSONObject;
+import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.HouseholdRepository;
-import org.springframework.transaction.annotation.Transactional;
 
-
-public class HouseholdService {
+public class HouseholdService implements RegisterService<JSONObject> {
 	
 	private HouseholdRepository householdRepository;
 	
@@ -15,31 +12,32 @@ public class HouseholdService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 	public void setHouseholdRepository(HouseholdRepository householdRepository) {
 		this.householdRepository = householdRepository;
 	}
-
-	@Transactional
-	public void save(HouseholdEntity entity) {
-		System.err.println("householdRepository;"+householdRepository);
-		householdRepository.addHousehold(entity);
-		
-	}
-	@Transactional
-	public void delete(HouseholdEntity entity) {
+	
+	@Override
+	public void save(JSONObject t) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Transactional
-	public void update(HouseholdEntity entity) {
+	
+	@Override
+	public void delete(JSONObject t) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Transactional
-	public HouseholdEntity findById(int id) {
+	
+	@Override
+	public void update(JSONObject t) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public JSONObject findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }
