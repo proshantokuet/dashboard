@@ -1,9 +1,12 @@
 package org.opensrp.dashboard.etl.transmission.service;
 
 import org.json.JSONObject;
+import org.opensrp.dashboard.etl.entity.ActionEntity;
 import org.opensrp.dashboard.etl.interfaces.TransmissionService;
+import org.opensrp.dashboard.etl.repository.ActionRepository;
+import org.opensrp.dashboard.etl.service.ActionService;
 
-public class ActionTransmissionService implements TransmissionService {
+public class ActionTransmissionService implements TransmissionService<ActionEntity, ActionRepository, ActionService> {
 	
 	private ActionTransmissionService() {
 		// TODO Auto-generated constructor stub
@@ -16,8 +19,9 @@ public class ActionTransmissionService implements TransmissionService {
 	}
 	
 	@Override
-	public void sentDataToConvert(JSONObject t) {
+	public ActionEntity sentDataToConvert(JSONObject t, ActionRepository actionRepository, ActionService actionService) {
 		System.err.println("Action" + t.toString());
+		return null;
 		
 	}
 	

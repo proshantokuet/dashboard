@@ -1,9 +1,10 @@
 package org.opensrp.dashboard.etl.interfaces;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public interface TransmissionService {
+public interface TransmissionService<T, V, X> {
 	
-	public void sentDataToConvert(JSONObject t);
+	public T sentDataToConvert(JSONObject t, V v, X x) throws JSONException;
 	
 }

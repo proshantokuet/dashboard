@@ -6,11 +6,9 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml
-		/WEB-INF/spring/entity-context.xml
-		/WEB-INF/spring/repository-context.xml
-		/WEB-INF/spring/service-context.xml
-		/WEB-INF/spring/appServlet/servlet-context.xml
-		/WEB-INF/spring/listener-context.xml
+		classpath*:application-dashboard-context.xml		
+		classpath*:application-couchdb-context.xml
+		classpath*:listener-context.xml
 		
 		</param-value>
 	</context-param>

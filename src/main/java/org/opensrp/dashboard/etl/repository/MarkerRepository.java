@@ -5,10 +5,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.opensrp.dashboard.etl.entity.MarkerEntity;
+import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MarkerRepository {
+public class MarkerRepository implements RegisterRepository<MarkerEntity> {
 	
 	public MarkerRepository() {
 		// TODO Auto-generated constructor stub
@@ -52,6 +53,18 @@ public class MarkerRepository {
 		cr.add(Restrictions.eq("type", type));
 		return (MarkerEntity) cr.list().get(0);
 		
+	}
+	
+	@Override
+	public void delete(MarkerEntity t) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public MarkerEntity findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

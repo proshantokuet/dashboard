@@ -1,5 +1,6 @@
 package org.opensrp.dashboard.etl.controller;
 
+import org.opensrp.dashboard.etl.entity.HouseholdEntity;
 import org.opensrp.dashboard.etl.repository.SourceDBRepository;
 import org.opensrp.dashboard.etl.service.HouseholdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,11 @@ public class HomeController {
 	@RequestMapping("/")
 	public String showHome() {
 		//logger.debug("This is home page");
-		/*HouseholdEntity householdEntity = new HouseholdEntity();
-		householdEntity.setName("jsss");
-		householdService.save(householdEntity);
+		HouseholdEntity householdEntity = HouseholdEntity.getInstance();
+		householdEntity.setCaseId("jjj");
+		//householdService.save(householdEntity);
 		
-		SourceDBEntity test = new SourceDBEntity();
+		/*SourceDBEntity test = new SourceDBEntity();
 		//test.setBody("voduu");
 		test.setId("idi");
 		sourceDBRepository.add(test);

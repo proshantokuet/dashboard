@@ -11,8 +11,8 @@ public abstract class CommonEntity {
 	@Column(name = "first_name")
 	private String firstName;
 	
-	@Column(name = "lase_name")
-	private String laseName;
+	@Column(name = "last_name")
+	private String lastName;
 	
 	@Column(name = "birth_date")
 	private String birthDate;
@@ -63,8 +63,10 @@ public abstract class CommonEntity {
 	@Column(name = "form_name")
 	private String formName;
 	
+	@Column(name = "user_type")
 	private String userType;
 	
+	@Column(name = "external_user_id")
 	private String externalUserId;
 	
 	@Column(name = "current_form_status")
@@ -83,6 +85,9 @@ public abstract class CommonEntity {
 	
 	private Date updated;
 	
+	@Column(name = "received_time")
+	private String receivedTime;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -91,12 +96,12 @@ public abstract class CommonEntity {
 		this.firstName = firstName;
 	}
 	
-	public String getLaseName() {
-		return laseName;
+	public String getLastName() {
+		return lastName;
 	}
 	
-	public void setLaseName(String laseName) {
-		this.laseName = laseName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	public String getBirthDate() {
@@ -113,14 +118,6 @@ public abstract class CommonEntity {
 	
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-	
-	public long getTimeStamp() {
-		return timeStamp;
-	}
-	
-	public void setTimeStamp(long timeStamp) {
-		this.timeStamp = timeStamp;
 	}
 	
 	public String getCaseId() {
@@ -305,6 +302,51 @@ public abstract class CommonEntity {
 	
 	public void setClientVersion(long clientVersion) {
 		this.clientVersion = clientVersion;
+	}
+	
+	public long getTimeStamp() {
+		return timeStamp;
+	}
+	
+	public void setTimeStamp(long timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	
+	public Date getCreated() {
+		return created;
+	}
+	
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+	
+	public Date getUpdated() {
+		return updated;
+	}
+	
+	public void setUpdated(Date updated) {
+		this.updated = updated;
+	}
+	
+	public String getReceivedTime() {
+		return receivedTime;
+	}
+	
+	public void setReceivedTime(String receivedTime) {
+		this.receivedTime = receivedTime;
+	}
+	
+	@Override
+	public String toString() {
+		return "CommonEntity [firstName=" + firstName + ", lastName=" + lastName + ", birthDate=" + birthDate + ", gender="
+		        + gender + ", caseId=" + caseId + ", instantId=" + instantId + ", provider=" + provider + ", locationId="
+		        + locationId + ", today=" + today + ", start=" + start + ", end=" + end + ", registrationDate="
+		        + registrationDate + ", country=" + country + ", division=" + division + ", district=" + district
+		        + ", upazila=" + upazila + ", union=" + union + ", ward=" + ward + ", subunit=" + subunit + ", mauzaPara="
+		        + mauzaPara + ", gps=" + gps + ", formName=" + formName + ", userType=" + userType + ", externalUserId="
+		        + externalUserId + ", currentFormStatus=" + currentFormStatus + ", submissionTime=" + submissionTime
+		        + ", clientVersion=" + clientVersion + ", timeStamp=" + timeStamp + ", created=" + created + ", updated="
+		        + updated + ", receivedTime=" + receivedTime + "]";
 	}
 	
 }

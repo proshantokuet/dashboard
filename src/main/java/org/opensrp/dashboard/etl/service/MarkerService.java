@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MarkerService implements RegisterService<MarkerEntity> {
+public class MarkerService implements RegisterService<MarkerEntity, MarkerRepository> {
 	
 	private MarkerRepository markerRepository;
 	
@@ -23,25 +23,31 @@ public class MarkerService implements RegisterService<MarkerEntity> {
 	}
 	
 	@Override
-	public void save(MarkerEntity t) {
+	public void save(MarkerEntity t, MarkerRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(MarkerEntity t) {
+	public void delete(MarkerEntity t, MarkerRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(MarkerEntity t) {
+	public void update(MarkerEntity t, MarkerRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public MarkerEntity findById(int id) {
+	public MarkerEntity findById(int id, MarkerRepository x) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public MarkerEntity findByCaseId(String caseId, MarkerRepository x) {
 		// TODO Auto-generated method stub
 		return null;
 	}

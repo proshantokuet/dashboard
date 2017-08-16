@@ -1,10 +1,15 @@
 package org.opensrp.dashboard.etl.service;
 
-import org.json.JSONObject;
+import javax.transaction.Transactional;
+
+import org.opensrp.dashboard.etl.entity.HouseholdEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.HouseholdRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class HouseholdService implements RegisterService<JSONObject> {
+@Service
+public class HouseholdService implements RegisterService<HouseholdEntity, HouseholdRepository> {
 	
 	private HouseholdRepository householdRepository;
 	
@@ -12,30 +17,46 @@ public class HouseholdService implements RegisterService<JSONObject> {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Autowired
 	public void setHouseholdRepository(HouseholdRepository householdRepository) {
 		this.householdRepository = householdRepository;
 	}
 	
+	@Transactional
 	@Override
-	public void save(JSONObject t) {
+	public void save(HouseholdEntity entity, HouseholdRepository householdRepository) {
+		
+		householdRepository.save(entity);
+		
+	}
+	
+	private static final HouseholdService INSTANCE = new HouseholdService();
+	
+	public static HouseholdService getInstance() {
+		return INSTANCE;
+		
+	}
+	
+	@Override
+	public void delete(HouseholdEntity t, HouseholdRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(JSONObject t) {
+	public void update(HouseholdEntity t, HouseholdRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(JSONObject t) {
+	public HouseholdEntity findById(int id, HouseholdRepository x) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 	
 	@Override
-	public JSONObject findById(int id) {
+	public HouseholdEntity findByCaseId(String caseId, HouseholdRepository x) {
 		// TODO Auto-generated method stub
 		return null;
 	}

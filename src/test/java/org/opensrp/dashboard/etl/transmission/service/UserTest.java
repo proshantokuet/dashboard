@@ -1,3 +1,4 @@
+package org.opensrp.dashboard.etl.transmission.service;
 /*package com.spring.tutorial.test;
 
 import static org.junit.Assert.*;

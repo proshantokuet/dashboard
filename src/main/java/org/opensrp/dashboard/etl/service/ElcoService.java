@@ -4,7 +4,7 @@ import org.opensrp.dashboard.etl.entity.ElcoEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.ElcoRepository;
 
-public class ElcoService implements RegisterService<ElcoEntity> {
+public class ElcoService implements RegisterService<ElcoEntity, ElcoRepository> {
 	
 	private ElcoRepository elcoRepository;
 	
@@ -17,25 +17,31 @@ public class ElcoService implements RegisterService<ElcoEntity> {
 	}
 	
 	@Override
-	public void save(ElcoEntity t) {
+	public void save(ElcoEntity t, ElcoRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(ElcoEntity t) {
+	public void delete(ElcoEntity t, ElcoRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(ElcoEntity t) {
+	public void update(ElcoEntity t, ElcoRepository x) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public ElcoEntity findById(int id) {
+	public ElcoEntity findById(int id, ElcoRepository x) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public ElcoEntity findByCaseId(String caseId, ElcoRepository x) {
 		// TODO Auto-generated method stub
 		return null;
 	}
