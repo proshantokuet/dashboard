@@ -1,24 +1,34 @@
 package org.opensrp.dashboard.etl.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.opensrp.dashboard.etl.entity.PNCEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PNCRepository implements RegisterRepository<PNCEntity> {
+	
+	private SessionFactory sessionFactory;
 	
 	public PNCRepository() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private SessionFactory sessionFactory;
-	
+	@Autowired
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
 	
 	@Override
-	public void save(PNCEntity t) {
-		// TODO Auto-generated method stub
+	public void save(PNCEntity pncEntity) {
+		System.out.println("Class: PNCRepository Method: save");
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.save(pncEntity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} // TODO Auto-generated method stub
 		
 	}
 	

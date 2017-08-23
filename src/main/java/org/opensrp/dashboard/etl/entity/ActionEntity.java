@@ -12,6 +12,10 @@ import javax.persistence.Table;
 @Table(name = "action")
 public class ActionEntity {
 	
+	public ActionEntity() {
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "action_id_seq")
 	@SequenceGenerator(name = "action_id_seq", sequenceName = "action_id_seq", allocationSize = 1)

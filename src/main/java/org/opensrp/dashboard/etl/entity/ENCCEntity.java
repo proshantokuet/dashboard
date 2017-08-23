@@ -14,6 +14,17 @@ import javax.persistence.Table;
 @Table(name = "encc")
 public class ENCCEntity {
 	
+	private static final ENCCEntity INSTANCE = new ENCCEntity();
+	
+	private ENCCEntity() {
+		
+	}
+	
+	public static ENCCEntity getInstance() {
+		return INSTANCE;
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "encc_id_seq")
 	@SequenceGenerator(name = "encc_id_seq", sequenceName = "encc_id_seq", allocationSize = 1)

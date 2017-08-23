@@ -3,32 +3,24 @@ package org.opensrp.dashboard.etl.data.converter;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.opensrp.dashboard.etl.entity.BNFEntity;
-import org.opensrp.dashboard.etl.entity.PSRFEntity;
 import org.opensrp.dashboard.etl.interfaces.DataConverterService;
+import org.opensrp.dashboard.etl.service.BNFService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BNFDataConverterService implements DataConverterService<JSONObject, PSRFEntity> {
+public class BNFDataConverterService implements DataConverterService {
 	
+	@Autowired
 	private BNFEntity bnfEntity;
 	
 	@Autowired
-	public void setBnfEntity(BNFEntity bnfEntity) {
-		this.bnfEntity = bnfEntity;
-	}
+	private BNFService bnfService;
 	
-	private BNFDataConverterService() {
+	public BNFDataConverterService() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private static final BNFDataConverterService INSTANCE = new BNFDataConverterService();
-	
-	public BNFDataConverterService getInstance() {
-		return INSTANCE;
-		
-	}
-	
 	@Override
-	public PSRFEntity convertData(JSONObject doc) throws JSONException {
+	public void convertToEntityAndSave(JSONObject doc) throws JSONException {
 		
 		bnfEntity.setFWBNFDATE(doc.getString("FWBNFDATE"));
 		
@@ -64,13 +56,7 @@ public class BNFDataConverterService implements DataConverterService<JSONObject,
 		
 		bnfEntity.setRelationalid(doc.getString("relationalid"));
 		
-		return null;
-	}
-	
-	@Override
-	public void sendData(PSRFEntity v) {
-		// TODO Auto-generated method stub
-		
+		bnfService.save(bnfEntity);
 	}
 	
 }

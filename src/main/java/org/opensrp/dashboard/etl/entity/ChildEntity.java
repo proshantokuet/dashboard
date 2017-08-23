@@ -15,6 +15,17 @@ import javax.persistence.Table;
 @Table(name = "child")
 public class ChildEntity extends CommonEntity {
 	
+	private static final ChildEntity INSTANCE = new ChildEntity();
+	
+	private ChildEntity() {
+		
+	}
+	
+	public static ChildEntity getInstance() {
+		return INSTANCE;
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "child_id_seq")
 	@SequenceGenerator(name = "child_id_seq", sequenceName = "child_id_seq", allocationSize = 1)

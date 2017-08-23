@@ -1,25 +1,33 @@
 package org.opensrp.dashboard.etl.transmission.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.opensrp.dashboard.etl.interfaces.TransmissionService;
+import org.opensrp.dashboard.etl.interfaces.TransmissionServices;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class TransmissionServiceFactory {
 	
-	private static final Map<String, Object> transmissionServiceMap = new HashMap<String, Object>();
-	static {
-		transmissionServiceMap.put("HouseHold", HouseholdTransmissionService.getInstance());
-		transmissionServiceMap.put("Elco", ElcoTransmissionService.getInstance());
-		transmissionServiceMap.put("Action", ActionTransmissionService.getInstance());
-		transmissionServiceMap.put("Child", ChildTransmissionService.getInstance());
-		transmissionServiceMap.put("Mother", MotherTransmissionService.getInstance());
-	};
+	@Autowired
+	private MotherTransmissionService motherTransmissionService;
 	
-	public static TransmissionService getTransmissionType(String transmissionType) {
+	@Autowired
+	private ChildTransmissionService childTransmissionService;
+	
+	private TransmissionServices transmissionServices;
+	
+	private TransmissionServices getTransmissionService(String transmissionServiceType) {
+		if (transmissionServiceType.equals("HouseHold"))
+			transmissionServices = childTransmissionService;
+		else if (transmissionServiceType.equals("Elco"))
+			transmissionServices = childTransmissionService;
+		else if (transmissionServiceType.equals("Mother"))
+			transmissionServices = motherTransmissionService;
+		else if (transmissionServiceType.equals("Child"))
+			transmissionServices = childTransmissionService;
+		return transmissionServices;
 		
-		return (TransmissionService) transmissionServiceMap.get(transmissionType);
-		
+	}
+	
+	public TransmissionServices getTransmissionType(String transmissionType) {
+		return getTransmissionService(transmissionType);
 	}
 	
 }

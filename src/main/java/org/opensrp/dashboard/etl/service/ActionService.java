@@ -1,10 +1,12 @@
 package org.opensrp.dashboard.etl.service;
 
+import javax.transaction.Transactional;
+
 import org.opensrp.dashboard.etl.entity.ActionEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.ActionRepository;
 
-public class ActionService implements RegisterService<ActionEntity, ActionRepository> {
+public class ActionService implements RegisterService<ActionEntity> {
 	
 	private ActionRepository actionRepository;
 	
@@ -12,36 +14,33 @@ public class ActionService implements RegisterService<ActionEntity, ActionReposi
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void setActionRepository(ActionRepository actionRepository) {
-		this.actionRepository = actionRepository;
+	@Transactional
+	@Override
+	public void save(ActionEntity actionEntity) {
+		actionRepository.save(actionEntity);
+		
 	}
 	
 	@Override
-	public void save(ActionEntity t, ActionRepository x) {
+	public void delete(ActionEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(ActionEntity t, ActionRepository x) {
+	public void update(ActionEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(ActionEntity t, ActionRepository x) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public ActionEntity findById(int id, ActionRepository x) {
+	public ActionEntity findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public ActionEntity findByCaseId(String caseId, ActionRepository x) {
+	public ActionEntity findByCaseId(String caseId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

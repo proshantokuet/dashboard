@@ -10,12 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
 	<!-- Enables the Spring MVC @Controller programming model -->
-
-
-
-
 <context:annotation-config></context:annotation-config>
-
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -24,35 +19,30 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<context:component-scan base-package="org.opensrp.dashboard.etl.controller" />
-
-
+	
+<context:component-scan base-package="org.opensrp.dashboard.etl.controller" />
 <context:component-scan base-package="org.opensrp.dashboard.etl.entity" />
 <context:component-scan base-package="org.opensrp.dashboard.etl.repository" />
 <context:component-scan base-package="org.opensrp.dashboard.etl.service" />
-
-
 	
-		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-        destroy-method="close">
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="org.postgresql.Driver" />
         <property name="url"  value="jdbc:postgresql://localhost/motechquartz" />
         <property name="username" value="postgres" />
         <property name="password" value="password" />
-    </bean>
+</bean>
 
-
-		<!-- Hibernate 4 SessionFactory Bean definition -->
-    <bean id="hibernate4AnnotatedSessionFactory"
-        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+<!-- Hibernate 4 SessionFactory Bean definition -->
+<bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
             <list>
                 <value>org.opensrp.dashboard.etl.entity.HouseholdEntity</value>
-                <value>org.opensrp.dashboard.etl.entity.MarkerEntity</value>
                 <value>org.opensrp.dashboard.etl.entity.ElcoEntity</value>
-                
+                <value>org.opensrp.dashboard.etl.entity.ActionEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.MotherEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.ChildEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.MarkerEntity</value>                
             </list>
         </property>
         <property name="hibernateProperties">
@@ -66,47 +56,81 @@
         </property>
     </bean>
     
-    <bean name="householdRepository" class="org.opensrp.dashboard.etl.repository.HouseholdRepository">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-        
-    </bean>
-     <bean name="householdService" class="org.opensrp.dashboard.etl.service.HouseholdService">
-        <property name="householdRepository" ref="householdRepository"></property>
-    </bean>
     
-     <bean name="markerRepository" class="org.opensrp.dashboard.etl.repository.MarkerRepository">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-        
-    </bean>
-     <bean name="markerService" class="org.opensrp.dashboard.etl.service.MarkerService">
-        <property name="markerRepository" ref="markerRepository"></property>
-    </bean>
-    
-    <bean name="elcoRepository" class="org.opensrp.dashboard.etl.repository.ElcoRepository">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-        
-    </bean>
-     <bean name="elcoService" class="org.opensrp.dashboard.etl.service.ElcoService">
-        <property name="elcoRepository" ref="elcoRepository"></property>
-    </bean>
-    
-     <bean name="homeController" class="org.opensrp.dashboard.etl.controller.HomeController">
-        <property name="householdService" ref="householdService"></property>
-    </bean>
-    
-    
-		<bean id="transactionManager"
-			class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-			<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-		</bean>
+ <bean name="transmissionServiceFactory" class="org.opensrp.dashboard.etl.transmission.service.TransmissionServiceFactory"/>
+  
+<bean name="householdService" class="org.opensrp.dashboard.etl.service.HouseholdService"/>    
+<bean name="elcoService" class="org.opensrp.dashboard.etl.service.ElcoService"/>
+<bean name="psrfService" class="org.opensrp.dashboard.etl.service.PSRFService"/>
+<bean name="motherService" class="org.opensrp.dashboard.etl.service.MotherService"/>
+<bean name="ancService" class="org.opensrp.dashboard.etl.service.ANCService"/>
+<bean name="pncService" class="org.opensrp.dashboard.etl.service.PNCService"/>
+<bean name="bnfService" class="org.opensrp.dashboard.etl.service.BNFService"/>
+<bean name="childService" class="org.opensrp.dashboard.etl.service.ChildService"/>
+<bean name="enccService" class="org.opensrp.dashboard.etl.service.ENCCService"/>
+<bean name="actionService" class="org.opensrp.dashboard.etl.service.ActionService"/>
 
+
+<bean name="householdRepository" class="org.opensrp.dashboard.etl.repository.HouseholdRepository"/>
+<bean name="elcoRepository" class="org.opensrp.dashboard.etl.repository.ElcoRepository"/>
+<bean name="psrfRepository" class="org.opensrp.dashboard.etl.repository.PSRFRepository"/> 
+<bean name="motherRepository" class="org.opensrp.dashboard.etl.repository.MotherRepository"/>
+<bean name="ancRepository" class="org.opensrp.dashboard.etl.repository.ANCRepository"/>
+<bean name="pncRepository" class="org.opensrp.dashboard.etl.repository.PNCRepository"/>
+<bean name="bnfRepository" class="org.opensrp.dashboard.etl.repository.BNFRepository"/>
+<bean name="childRepository" class="org.opensrp.dashboard.etl.repository.ChildRepository"/>
+<bean name="enccRepository" class="org.opensrp.dashboard.etl.repository.ENCCRepository"/>
+<bean name="actionRepository" class="org.opensrp.dashboard.etl.repository.ActionRepository"/>
+
+
+<bean name="householdTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.HouseholdTransmissionService"/>
+<bean name="elcoTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.ElcoTransmissionService"/>
+<bean name="psrfTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.PSRFTransmissionService"/> 
+<bean name="motherTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.MotherTransmissionService"/>
+<bean name="ancTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.ANCTransmissionService"/>
+<bean name="pncTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.PNCTransmissionService"/>
+<bean name="bnfTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.BNFTransmissionService"/>
+<bean name="childTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.ChildTransmissionService"/>
+<bean name="enccTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.ENCCTransmissionService"/>
+<bean name="actionTransmissionService" class="org.opensrp.dashboard.etl.transmission.service.ActionTransmissionService"/>
+  
+<bean name="householdDataConverterService" class="org.opensrp.dashboard.etl.data.converter.HouseholdDataConverterService"/>
+<bean name="elcoDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ElcoDataConverterService"/>
+<bean name="psrfDataConverterService" class="org.opensrp.dashboard.etl.data.converter.PSRFDataConverterService"/> 
+<bean name="motherDataConverterService" class="org.opensrp.dashboard.etl.data.converter.MotherDataConverterService"/>
+<bean name="ancDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ANCDataConverterService"/>
+<bean name="pncDataConverterService" class="org.opensrp.dashboard.etl.data.converter.PNCDataConverterService"/>
+<bean name="bnfDataConverterService" class="org.opensrp.dashboard.etl.data.converter.BNFDataConverterService"/>
+<bean name="enccDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ENCCDataConverterService"/>
+<bean name="actionDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ActionDataConverterService"/>
+
+
+<bean name="householdEntity" class="org.opensrp.dashboard.etl.entity.HouseholdEntity"/>
+<bean name="elcoEntity" class="org.opensrp.dashboard.etl.entity.ElcoEntity"/>
+<bean name="psrfEntity" class="org.opensrp.dashboard.etl.entity.PSRFEntity"/>
+<bean name="motherEntity" class="org.opensrp.dashboard.etl.entity.MotherEntity"/>
+<bean name="ancEntity" class="org.opensrp.dashboard.etl.entity.ANCEntity"/>
+<bean name="pncEntity" class="org.opensrp.dashboard.etl.entity.PNCEntity"/>
+<bean name="bnfEntity" class="org.opensrp.dashboard.etl.entity.BNFEntity"/>
+<bean name="childEntity" class="org.opensrp.dashboard.etl.entity.ChildEntity"/>
+<bean name="enccEntity" class="org.opensrp.dashboard.etl.entity.ENCCEntity"/>
+<bean name="actionEntity" class="org.opensrp.dashboard.etl.entity.ActionEntity"/>
+
+
+<bean name="markerRepository" class="org.opensrp.dashboard.etl.repository.MarkerRepository">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+</bean>
+     
+<bean name="markerService" class="org.opensrp.dashboard.etl.service.MarkerService"/>
+
+<bean name="homeController" class="org.opensrp.dashboard.etl.controller.HomeController">
+        <property name="householdService" ref="householdService"></property>
+</bean>     
+
+<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+</bean>
 		<mvc:annotation-driven></mvc:annotation-driven>
 		<tx:annotation-driven proxy-target-class = "true" />
-		
-		
-		
-		
-
-		<mvc:resources location="/resources/" mapping="/static/**" />
-	
+		<mvc:resources location="/resources/" mapping="/static/**" />	
 </beans>

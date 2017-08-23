@@ -1,27 +1,23 @@
 package org.opensrp.dashboard.etl.transmission.service;
 
+import org.json.JSONException;
 import org.json.JSONObject;
-import org.opensrp.dashboard.etl.entity.ActionEntity;
-import org.opensrp.dashboard.etl.interfaces.TransmissionService;
-import org.opensrp.dashboard.etl.repository.ActionRepository;
-import org.opensrp.dashboard.etl.service.ActionService;
+import org.opensrp.dashboard.etl.data.converter.ActionDataConverterService;
+import org.opensrp.dashboard.etl.interfaces.TransmissionServices;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class ActionTransmissionService implements TransmissionService<ActionEntity, ActionRepository, ActionService> {
+public class ActionTransmissionService implements TransmissionServices {
 	
-	private ActionTransmissionService() {
+	@Autowired
+	private ActionDataConverterService actionDataConverterService;
+	
+	public ActionTransmissionService() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private static final ActionTransmissionService INSTANCE = new ActionTransmissionService();
-	
-	public static ActionTransmissionService getInstance() {
-		return INSTANCE;
-	}
-	
 	@Override
-	public ActionEntity sentDataToConvert(JSONObject t, ActionRepository actionRepository, ActionService actionService) {
-		System.err.println("Action" + t.toString());
-		return null;
+	public void convertDataJsonToEntity(JSONObject doc) throws JSONException {
+		actionDataConverterService.convertToEntityAndSave(doc);
 		
 	}
 	

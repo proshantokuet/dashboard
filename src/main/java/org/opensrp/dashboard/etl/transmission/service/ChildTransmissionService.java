@@ -2,28 +2,14 @@ package org.opensrp.dashboard.etl.transmission.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.opensrp.dashboard.etl.entity.ChildEntity;
-import org.opensrp.dashboard.etl.interfaces.TransmissionService;
-import org.opensrp.dashboard.etl.repository.ChildRepository;
-import org.opensrp.dashboard.etl.service.ChildService;
+import org.opensrp.dashboard.etl.interfaces.TransmissionServices;
 
-public class ChildTransmissionService implements TransmissionService<ChildEntity, ChildRepository, ChildService> {
-	
-	private ChildTransmissionService() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	private static final ChildTransmissionService INSTANCE = new ChildTransmissionService();
-	
-	public static ChildTransmissionService getInstance() {
-		return INSTANCE;
-	}
+public class ChildTransmissionService implements TransmissionServices {
 	
 	@Override
-	public ChildEntity sentDataToConvert(JSONObject doc, ChildRepository childRepository, ChildService childService)
-	    throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
+	public void convertDataJsonToEntity(JSONObject doc) throws JSONException {
+		System.out.println("Class:ChildTransmissionService, method:sentDataToConvert");
+		//return ChildDataConverterService.getInstance().convertData(doc, childRepository, childService);
 	}
 	
 }

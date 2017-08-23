@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name = "mother")
 public class MotherEntity extends CommonEntity {
 	
+	public MotherEntity() {
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mother_id_seq")
 	@SequenceGenerator(name = "mother_id_seq", sequenceName = "mother_id_seq", allocationSize = 1)

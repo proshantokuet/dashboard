@@ -1,24 +1,34 @@
 package org.opensrp.dashboard.etl.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.opensrp.dashboard.etl.entity.ChildEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ChildRepository implements RegisterRepository<ChildEntity> {
 	
-	public ChildRepository() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	private SessionFactory sessionFactory;
 	
+	public ChildRepository() {
+		System.out.println("constructor: MotherRepository");
+	}
+	
+	@Autowired
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
 	
 	@Override
-	public void save(ChildEntity t) {
-		// TODO Auto-generated method stub
+	public void save(ChildEntity childEntity) {
+		System.out.println("Class: ChildRepository Method: save");
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.save(childEntity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} // TODO Auto-generated method stub
 		
 	}
 	

@@ -14,6 +14,17 @@ import javax.persistence.Table;
 @Table(name = "psrf")
 public class PSRFEntity {
 	
+	private static final PSRFEntity INSTANCE = new PSRFEntity();
+	
+	private PSRFEntity() {
+		
+	}
+	
+	public static PSRFEntity getInstance() {
+		return INSTANCE;
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "psrf_id_seq")
 	@SequenceGenerator(name = "psrf_id_seq", sequenceName = "psrf_id_seq", allocationSize = 1)

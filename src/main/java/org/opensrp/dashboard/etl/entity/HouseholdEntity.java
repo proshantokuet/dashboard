@@ -1,14 +1,10 @@
 package org.opensrp.dashboard.etl.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -45,9 +41,9 @@ public class HouseholdEntity extends CommonEntity {
 	@Column(name = "elco")
 	private int ELCO;
 	
-	@OneToMany(targetEntity = ElcoEntity.class, mappedBy = "id", fetch = FetchType.EAGER)
+	/*@OneToMany(targetEntity = ElcoEntity.class, mappedBy = "id", fetch = FetchType.EAGER)
 	private List<ElcoEntity> elco;
-	
+	*/
 	public int getId() {
 		return id;
 	}
@@ -104,19 +100,18 @@ public class HouseholdEntity extends CommonEntity {
 		FWJIVHHID = fWJIVHHID;
 	}
 	
-	public List<ElcoEntity> getElco() {
-		return elco;
-	}
-	
-	public void setElco(List<ElcoEntity> elco) {
-		this.elco = elco;
-	}
+	/*	public List<ElcoEntity> getElco() {
+			return elco;
+		}
+		
+		public void setElco(List<ElcoEntity> elco) {
+			this.elco = elco;
+		}*/
 	
 	@Override
 	public String toString() {
 		return "HouseholdEntity [id=" + id + ", FWGOBHHID=" + FWGOBHHID + ", GOBHHID=" + GOBHHID + ", FWNHHMBRNUM="
-		        + FWNHHMBRNUM + ", FWNHHMWRA=" + FWNHHMWRA + ", FWJIVHHID=" + FWJIVHHID + ", ELCO=" + ELCO + ", elco="
-		        + elco + "]";
+		        + FWNHHMBRNUM + ", FWNHHMWRA=" + FWNHHMWRA + ", FWJIVHHID=" + FWJIVHHID + ", ELCO=" + ELCO + ", elco=" + "]";
 	}
 	
 }

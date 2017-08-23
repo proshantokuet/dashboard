@@ -5,45 +5,41 @@ import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.PNCRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PNCService implements RegisterService<PNCEntity, PNCRepository> {
+public class PNCService implements RegisterService<PNCEntity> {
 	
+	@Autowired
 	private PNCRepository pncRepository;
 	
 	public PNCService() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Autowired
-	public void setPncRepository(PNCRepository pncRepository) {
-		this.pncRepository = pncRepository;
-	}
-	
 	@Override
-	public void save(PNCEntity t, PNCRepository x) {
+	public void save(PNCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(PNCEntity t, PNCRepository x) {
+	public void delete(PNCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(PNCEntity t, PNCRepository x) {
+	public void update(PNCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public PNCEntity findById(int id, PNCRepository x) {
+	public PNCEntity findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public PNCEntity findByCaseId(String caseId, PNCRepository x) {
+	public PNCEntity findByCaseId(String caseId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

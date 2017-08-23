@@ -1,24 +1,34 @@
 package org.opensrp.dashboard.etl.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.opensrp.dashboard.etl.entity.ActionEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ActionRepository implements RegisterRepository<ActionEntity> {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 	
 	public ActionRepository() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory(SessionFactory sf) {
-		this.sessionFactory = sf;
+	public void actionRepositoryPrint() {
+		System.out.println("Class:ActionRepository, method: actionRepositoryPrint");
 	}
 	
 	@Override
-	public void save(ActionEntity t) {
-		// TODO Auto-generated method stub
+	public void save(ActionEntity actionEntity) {
+		System.out.println("Class: ActionRepository Method: save");
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.save(actionEntity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} // TODO Auto-generated method stub
 		
 	}
 	

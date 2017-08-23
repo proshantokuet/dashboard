@@ -14,6 +14,21 @@ import javax.persistence.Table;
 @Table(name = "anc")
 public class ANCEntity {
 	
+	private static final ANCEntity INSTANCE = new ANCEntity();
+	
+	public void setMother(MotherEntity mother) {
+		this.mother = mother;
+	}
+	
+	private ANCEntity() {
+		
+	}
+	
+	public static ANCEntity getInstance() {
+		return INSTANCE;
+		
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "anc_id_seq")
 	@SequenceGenerator(name = "anc_id_seq", sequenceName = "anc_id_seq", allocationSize = 1)
@@ -138,5 +153,481 @@ public class ANCEntity {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mother_id", referencedColumnName = "id")
 	private MotherEntity mother;
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getAncName() {
+		return ancName;
+	}
+	
+	public void setAncName(String ancName) {
+		this.ancName = ancName;
+	}
+	
+	public String getFWANCDATE() {
+		return FWANCDATE;
+	}
+	
+	public void setFWANCDATE(String fWANCDATE) {
+		FWANCDATE = fWANCDATE;
+	}
+	
+	public String getAnc_current_formStatus() {
+		return anc_current_formStatus;
+	}
+	
+	public void setAnc_current_formStatus(String anc_current_formStatus) {
+		this.anc_current_formStatus = anc_current_formStatus;
+	}
+	
+	public String getFWCONFIRMATION() {
+		return FWCONFIRMATION;
+	}
+	
+	public void setFWCONFIRMATION(String fWCONFIRMATION) {
+		FWCONFIRMATION = fWCONFIRMATION;
+	}
+	
+	public String getFWGESTATIONALAGE() {
+		return FWGESTATIONALAGE;
+	}
+	
+	public void setFWGESTATIONALAGE(String fWGESTATIONALAGE) {
+		FWGESTATIONALAGE = fWGESTATIONALAGE;
+	}
+	
+	public String getFWEDD() {
+		return FWEDD;
+	}
+	
+	public void setFWEDD(String fWEDD) {
+		FWEDD = fWEDD;
+	}
+	
+	public String getFWANCREMSTS() {
+		return FWANCREMSTS;
+	}
+	
+	public void setFWANCREMSTS(String fWANCREMSTS) {
+		FWANCREMSTS = fWANCREMSTS;
+	}
+	
+	public String getFWANCINT() {
+		return FWANCINT;
+	}
+	
+	public void setFWANCINT(String fWANCINT) {
+		FWANCINT = fWANCINT;
+	}
+	
+	public String getFWANCKNWPRVDR() {
+		return FWANCKNWPRVDR;
+	}
+	
+	public void setFWANCKNWPRVDR(String fWANCKNWPRVDR) {
+		FWANCKNWPRVDR = fWANCKNWPRVDR;
+	}
+	
+	public String getFWANCANM() {
+		return FWANCANM;
+	}
+	
+	public void setFWANCANM(String fWANCANM) {
+		FWANCANM = fWANCANM;
+	}
+	
+	public String getFWANCHBP() {
+		return FWANCHBP;
+	}
+	
+	public void setFWANCHBP(String fWANCHBP) {
+		FWANCHBP = fWANCHBP;
+	}
+	
+	public String getFWANCDBT() {
+		return FWANCDBT;
+	}
+	
+	public void setFWANCDBT(String fWANCDBT) {
+		FWANCDBT = fWANCDBT;
+	}
+	
+	public String getFWANCTHY() {
+		return FWANCTHY;
+	}
+	
+	public void setFWANCTHY(String fWANCTHY) {
+		FWANCTHY = fWANCTHY;
+	}
+	
+	public String getFWANCPROB() {
+		return FWANCPROB;
+	}
+	
+	public void setFWANCPROB(String fWANCPROB) {
+		FWANCPROB = fWANCPROB;
+	}
+	
+	public String getFWANCHEAD() {
+		return FWANCHEAD;
+	}
+	
+	public void setFWANCHEAD(String fWANCHEAD) {
+		FWANCHEAD = fWANCHEAD;
+	}
+	
+	public String getFWBPCLOCOFDEL() {
+		return FWBPCLOCOFDEL;
+	}
+	
+	public void setFWBPCLOCOFDEL(String fWBPCLOCOFDEL) {
+		FWBPCLOCOFDEL = fWBPCLOCOFDEL;
+	}
+	
+	public String getFWBPCASSTLAB() {
+		return FWBPCASSTLAB;
+	}
+	
+	public void setFWBPCASSTLAB(String fWBPCASSTLAB) {
+		FWBPCASSTLAB = fWBPCASSTLAB;
+	}
+	
+	public String getFWBPCTRNSPRT() {
+		return FWBPCTRNSPRT;
+	}
+	
+	public void setFWBPCTRNSPRT(String fWBPCTRNSPRT) {
+		FWBPCTRNSPRT = fWBPCTRNSPRT;
+	}
+	
+	public String getFWBPCBLDGRP() {
+		return FWBPCBLDGRP;
+	}
+	
+	public void setFWBPCBLDGRP(String fWBPCBLDGRP) {
+		FWBPCBLDGRP = fWBPCBLDGRP;
+	}
+	
+	public String getFWBPCBLDDNR() {
+		return FWBPCBLDDNR;
+	}
+	
+	public void setFWBPCBLDDNR(String fWBPCBLDDNR) {
+		FWBPCBLDDNR = fWBPCBLDDNR;
+	}
+	
+	public String getFWBPC1FINARGMT() {
+		return FWBPC1FINARGMT;
+	}
+	
+	public void setFWBPC1FINARGMT(String fWBPC1FINARGMT) {
+		FWBPC1FINARGMT = fWBPC1FINARGMT;
+	}
+	
+	public String getMauza() {
+		return mauza;
+	}
+	
+	public void setMauza(String mauza) {
+		this.mauza = mauza;
+	}
+	
+	public String getFWVG() {
+		return FWVG;
+	}
+	
+	public void setFWVG(String fWVG) {
+		FWVG = fWVG;
+	}
+	
+	public String getFWHR_PSR() {
+		return FWHR_PSR;
+	}
+	
+	public void setFWHR_PSR(String fWHR_PSR) {
+		FWHR_PSR = fWHR_PSR;
+	}
+	
+	public String getFWHRP() {
+		return FWHRP;
+	}
+	
+	public void setFWHRP(String fWHRP) {
+		FWHRP = fWHRP;
+	}
+	
+	public String getExisting_ELCO() {
+		return existing_ELCO;
+	}
+	
+	public void setExisting_ELCO(String existing_ELCO) {
+		this.existing_ELCO = existing_ELCO;
+	}
+	
+	public String getFWANC1BLRVIS() {
+		return FWANC1BLRVIS;
+	}
+	
+	public void setFWANC1BLRVIS(String fWANC1BLRVIS) {
+		FWANC1BLRVIS = fWANC1BLRVIS;
+	}
+	
+	public String getFWANCSWLNG() {
+		return FWANCSWLNG;
+	}
+	
+	public void setFWANCSWLNG(String fWANCSWLNG) {
+		FWANCSWLNG = fWANCSWLNG;
+	}
+	
+	public String getFWANCCONVL() {
+		return FWANCCONVL;
+	}
+	
+	public void setFWANCCONVL(String fWANCCONVL) {
+		FWANCCONVL = fWANCCONVL;
+	}
+	
+	public String getFWANCBLD() {
+		return FWANCBLD;
+	}
+	
+	public void setFWANCBLD(String fWANCBLD) {
+		FWANCBLD = fWANCBLD;
+	}
+	
+	public String getFWANCDS1() {
+		return FWANCDS1;
+	}
+	
+	public void setFWANCDS1(String fWANCDS1) {
+		FWANCDS1 = fWANCDS1;
+	}
+	
+	public String getFWANCDS2() {
+		return FWANCDS2;
+	}
+	
+	public void setFWANCDS2(String fWANCDS2) {
+		FWANCDS2 = fWANCDS2;
+	}
+	
+	public String getFWANCDS3() {
+		return FWANCDS3;
+	}
+	
+	public void setFWANCDS3(String fWANCDS3) {
+		FWANCDS3 = fWANCDS3;
+	}
+	
+	public String getFWANCDS4() {
+		return FWANCDS4;
+	}
+	
+	public void setFWANCDS4(String fWANCDS4) {
+		FWANCDS4 = fWANCDS4;
+	}
+	
+	public String getFWANCDS5() {
+		return FWANCDS5;
+	}
+	
+	public void setFWANCDS5(String fWANCDS5) {
+		FWANCDS5 = fWANCDS5;
+	}
+	
+	public String getFWANCDS6() {
+		return FWANCDS6;
+	}
+	
+	public void setFWANCDS6(String fWANCDS6) {
+		FWANCDS6 = fWANCDS6;
+	}
+	
+	public String getFWDANGERVALUE() {
+		return FWDANGERVALUE;
+	}
+	
+	public void setFWDANGERVALUE(String fWDANGERVALUE) {
+		FWDANGERVALUE = fWDANGERVALUE;
+	}
+	
+	public String getFWNOTELIGIBLE() {
+		return FWNOTELIGIBLE;
+	}
+	
+	public void setFWNOTELIGIBLE(String fWNOTELIGIBLE) {
+		FWNOTELIGIBLE = fWNOTELIGIBLE;
+	}
+	
+	public String getELCO() {
+		return ELCO;
+	}
+	
+	public void setELCO(String eLCO) {
+		ELCO = eLCO;
+	}
+	
+	public String getFWHR_ANC1() {
+		return FWHR_ANC1;
+	}
+	
+	public void setFWHR_ANC1(String fWHR_ANC1) {
+		FWHR_ANC1 = fWHR_ANC1;
+	}
+	
+	public String getFWFLAGVALUE() {
+		return FWFLAGVALUE;
+	}
+	
+	public void setFWFLAGVALUE(String fWFLAGVALUE) {
+		FWFLAGVALUE = fWFLAGVALUE;
+	}
+	
+	public String getFWSORTVALUE() {
+		return FWSORTVALUE;
+	}
+	
+	public void setFWSORTVALUE(String fWSORTVALUE) {
+		FWSORTVALUE = fWSORTVALUE;
+	}
+	
+	public String getUser_type() {
+		return user_type;
+	}
+	
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+	
+	public String getExternal_user_ID() {
+		return external_user_ID;
+	}
+	
+	public void setExternal_user_ID(String external_user_ID) {
+		this.external_user_ID = external_user_ID;
+	}
+	
+	public String getRelationalid() {
+		return relationalid;
+	}
+	
+	public void setRelationalid(String relationalid) {
+		this.relationalid = relationalid;
+	}
+	
+	public String getFW_GOBHHID() {
+		return FW_GOBHHID;
+	}
+	
+	public void setFW_GOBHHID(String fW_GOBHHID) {
+		FW_GOBHHID = fW_GOBHHID;
+	}
+	
+	public String getFW_JiVitAHHID() {
+		return FW_JiVitAHHID;
+	}
+	
+	public void setFW_JiVitAHHID(String fW_JiVitAHHID) {
+		FW_JiVitAHHID = fW_JiVitAHHID;
+	}
+	
+	public String getFW_WOMBID() {
+		return FW_WOMBID;
+	}
+	
+	public void setFW_WOMBID(String fW_WOMBID) {
+		FW_WOMBID = fW_WOMBID;
+	}
+	
+	public String getFW_WOMNID() {
+		return FW_WOMNID;
+	}
+	
+	public void setFW_WOMNID(String fW_WOMNID) {
+		FW_WOMNID = fW_WOMNID;
+	}
+	
+	public String getFW_WOMFNAME() {
+		return FW_WOMFNAME;
+	}
+	
+	public void setFW_WOMFNAME(String fW_WOMFNAME) {
+		FW_WOMFNAME = fW_WOMFNAME;
+	}
+	
+	public String getFW_HUSNAME() {
+		return FW_HUSNAME;
+	}
+	
+	public void setFW_HUSNAME(String fW_HUSNAME) {
+		FW_HUSNAME = fW_HUSNAME;
+	}
+	
+	public String getMOTHER_REFERENCE_DATE() {
+		return MOTHER_REFERENCE_DATE;
+	}
+	
+	public void setMOTHER_REFERENCE_DATE(String mOTHER_REFERENCE_DATE) {
+		MOTHER_REFERENCE_DATE = mOTHER_REFERENCE_DATE;
+	}
+	
+	public String getREFERENCE_DATE() {
+		return REFERENCE_DATE;
+	}
+	
+	public void setREFERENCE_DATE(String rEFERENCE_DATE) {
+		REFERENCE_DATE = rEFERENCE_DATE;
+	}
+	
+	public String getSTART_DATE() {
+		return START_DATE;
+	}
+	
+	public void setSTART_DATE(String sTART_DATE) {
+		START_DATE = sTART_DATE;
+	}
+	
+	public String getEND_DATE() {
+		return END_DATE;
+	}
+	
+	public void setEND_DATE(String eND_DATE) {
+		END_DATE = eND_DATE;
+	}
+	
+	public long getClientVersion() {
+		return clientVersion;
+	}
+	
+	public void setClientVersion(long clientVersion) {
+		this.clientVersion = clientVersion;
+	}
+	
+	public String getReceived_time() {
+		return received_time;
+	}
+	
+	public void setReceived_time(String received_time) {
+		this.received_time = received_time;
+	}
+	
+	public long getTimeStamp() {
+		return timeStamp;
+	}
+	
+	public void setTimeStamp(long timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	
+	public MotherEntity getMother() {
+		return mother;
+	}
 	
 }

@@ -3,33 +3,26 @@ package org.opensrp.dashboard.etl.data.converter;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.opensrp.dashboard.etl.entity.HouseholdEntity;
-import org.opensrp.dashboard.etl.repository.HouseholdRepository;
+import org.opensrp.dashboard.etl.interfaces.DataConverterService;
 import org.opensrp.dashboard.etl.service.HouseholdService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HouseholdDataConverterService {
+public class HouseholdDataConverterService implements DataConverterService {
 	
-	private HouseholdDataConverterService() {
+	public HouseholdDataConverterService() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//public HouseholdService householdService = HouseholdService.getInstance();
+	@Autowired
+	private HouseholdService householdService;
 	
-	/*@Autowired
-	private HouseholdRepository householdRepository;
-	*/
-	private HouseholdEntity householdEntity = HouseholdEntity.getInstance();
+	@Autowired
+	private HouseholdEntity householdEntity;
 	
-	private static final HouseholdDataConverterService INSTANCE = new HouseholdDataConverterService();
-	
-	public static HouseholdDataConverterService getInstance() {
-		return INSTANCE;
-		
-	}
-	
-	public HouseholdEntity convertData(JSONObject doc, HouseholdRepository householdRepository,
-	                                   HouseholdService householdService) throws JSONException {
+	@Override
+	public void convertToEntityAndSave(JSONObject doc) throws JSONException {
 		//System.err.println("householdEntity:" + householdEntity);
 		householdEntity.setBirthDate(doc.getString("FWHOHBIRTHDATE"));
 		householdEntity.setCaseId(doc.getString("caseId"));
@@ -67,14 +60,7 @@ public class HouseholdDataConverterService {
 		householdEntity.setUserType(doc.getString("user_type"));
 		householdEntity.setWard(doc.getString("FWWARD"));
 		
-		sendData(householdEntity, householdRepository, householdService);
-		return householdEntity;
-	}
-	
-	public void sendData(HouseholdEntity entity, HouseholdRepository householdRepository, HouseholdService householdService) {
-		//System.err.println("householdRepositoryDOv:" + householdRepository);
-		householdService.save(entity, householdRepository);
-		// TODO Auto-generated method stub
+		householdService.save(householdEntity);
 		
 	}
 	

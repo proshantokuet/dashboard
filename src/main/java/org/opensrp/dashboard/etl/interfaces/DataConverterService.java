@@ -1,10 +1,9 @@
 package org.opensrp.dashboard.etl.interfaces;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
-public interface DataConverterService<T, V> {
+public interface DataConverterService {
 	
-	public V convertData(T t) throws JSONException;
-	
-	public void sendData(V v);
+	public void convertToEntityAndSave(JSONObject t) throws JSONException;
 }

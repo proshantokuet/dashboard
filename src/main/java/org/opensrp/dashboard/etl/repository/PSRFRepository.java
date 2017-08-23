@@ -1,24 +1,34 @@
 package org.opensrp.dashboard.etl.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.opensrp.dashboard.etl.entity.PSRFEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PSRFRepository implements RegisterRepository<PSRFEntity> {
+	
+	private SessionFactory sessionFactory;
 	
 	public PSRFRepository() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private SessionFactory sessionFactory;
-	
+	@Autowired
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
 	}
 	
 	@Override
-	public void save(PSRFEntity t) {
-		// TODO Auto-generated method stub
+	public void save(PSRFEntity psrfEntity) {
+		System.out.println("Class: PSRFRepository Method: save");
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.save(psrfEntity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} // TODO Auto-generated method stub
 		
 	}
 	

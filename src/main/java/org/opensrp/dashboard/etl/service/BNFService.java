@@ -3,9 +3,11 @@ package org.opensrp.dashboard.etl.service;
 import org.opensrp.dashboard.etl.entity.BNFEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.BNFRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class BNFService implements RegisterService<BNFEntity, BNFRepository> {
+public class BNFService implements RegisterService<BNFEntity> {
 	
+	@Autowired
 	private BNFRepository bnfRepository;
 	
 	public BNFService() {
@@ -17,31 +19,31 @@ public class BNFService implements RegisterService<BNFEntity, BNFRepository> {
 	}
 	
 	@Override
-	public void save(BNFEntity t, BNFRepository x) {
+	public void save(BNFEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(BNFEntity t, BNFRepository x) {
+	public void delete(BNFEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(BNFEntity t, BNFRepository x) {
+	public void update(BNFEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public BNFEntity findById(int id, BNFRepository x) {
+	public BNFEntity findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public BNFEntity findByCaseId(String caseId, BNFRepository x) {
+	public BNFEntity findByCaseId(String caseId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

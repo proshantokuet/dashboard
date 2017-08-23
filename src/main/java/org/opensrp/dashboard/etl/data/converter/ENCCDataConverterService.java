@@ -2,26 +2,21 @@ package org.opensrp.dashboard.etl.data.converter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.opensrp.dashboard.etl.entity.PNCEntity;
+import org.opensrp.dashboard.etl.entity.ENCCEntity;
 import org.opensrp.dashboard.etl.interfaces.DataConverterService;
-import org.opensrp.dashboard.etl.service.PNCService;
+import org.opensrp.dashboard.etl.service.ENCCService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class PNCDataConverterService implements DataConverterService {
+public class ENCCDataConverterService implements DataConverterService {
 	
 	@Autowired
-	private PNCEntity pncEntity;
+	private ENCCEntity enccEntity;
 	
 	@Autowired
-	private PNCService pncService;
+	private ENCCService enccService;
 	
-	public PNCDataConverterService() {
+	public ENCCDataConverterService() {
 		
-	}
-	
-	@Autowired
-	public void setPNCEntity(PNCEntity pncEntity) {
-		this.pncEntity = pncEntity;
 	}
 	
 	@Override
@@ -34,8 +29,8 @@ public class PNCDataConverterService implements DataConverterService {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("Class: PNCDataConverterService, method: convertData");
-		pncService.save(pncEntity);
+		System.out.println("Class: ENCCDataConverterService, method: convertData");
+		enccService.save(enccEntity);
 	}
 	
 }

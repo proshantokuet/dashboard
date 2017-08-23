@@ -4,21 +4,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.opensrp.dashboard.etl.entity.ElcoEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterRepository;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Qualifier("elcoRepository")
 public class ElcoRepository implements RegisterRepository<ElcoEntity> {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 	
 	public ElcoRepository() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory(SessionFactory sf) {
-		this.sessionFactory = sf;
 	}
 	
 	public void addElco(ElcoEntity p) {
@@ -34,7 +30,15 @@ public class ElcoRepository implements RegisterRepository<ElcoEntity> {
 	}
 	
 	@Override
-	public void save(ElcoEntity t) {
+	public void save(ElcoEntity elcoEntity) {
+		System.out.println("Class: ElcoRepository Method: save: " + elcoEntity);
+		Session session = this.sessionFactory.getCurrentSession();
+		try {
+			session.save(elcoEntity);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
 		
 	}

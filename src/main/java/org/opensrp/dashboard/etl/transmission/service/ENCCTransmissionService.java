@@ -1,23 +1,29 @@
+/**
+ * 
+ */
 package org.opensrp.dashboard.etl.transmission.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.opensrp.dashboard.etl.data.converter.ElcoDataConverterService;
+import org.opensrp.dashboard.etl.data.converter.ENCCDataConverterService;
 import org.opensrp.dashboard.etl.interfaces.TransmissionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ElcoTransmissionService implements TransmissionServices {
+/**
+ * @author sohel
+ */
+public class ENCCTransmissionService implements TransmissionServices {
 	
 	@Autowired
-	private ElcoDataConverterService elcoDataConverterService;
+	private ENCCDataConverterService enccDataConverterService;
 	
-	public ElcoTransmissionService() {
+	public ENCCTransmissionService() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public void convertDataJsonToEntity(JSONObject doc) throws JSONException {
-		elcoDataConverterService.convertToEntityAndSave(doc);
+		enccDataConverterService.convertToEntityAndSave(doc);
 		
 	}
 	

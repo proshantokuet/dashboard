@@ -2,28 +2,19 @@ package org.opensrp.dashboard.etl.transmission.service;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.opensrp.dashboard.etl.entity.MotherEntity;
-import org.opensrp.dashboard.etl.interfaces.TransmissionService;
-import org.opensrp.dashboard.etl.repository.MotherRepository;
-import org.opensrp.dashboard.etl.service.MotherService;
+import org.opensrp.dashboard.etl.data.converter.MotherDataConverterService;
+import org.opensrp.dashboard.etl.interfaces.TransmissionServices;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class MotherTransmissionService implements TransmissionService<MotherEntity, MotherRepository, MotherService> {
+public class MotherTransmissionService implements TransmissionServices {
 	
-	private MotherTransmissionService() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	private static final MotherTransmissionService INSTANCE = new MotherTransmissionService();
-	
-	public static MotherTransmissionService getInstance() {
-		return INSTANCE;
-	}
+	@Autowired
+	private MotherDataConverterService motherDataConverterService;
 	
 	@Override
-	public MotherEntity sentDataToConvert(JSONObject doc, MotherRepository motherRepository, MotherService motherService)
-	    throws JSONException {
-		// TODO Auto-generated method stub
-		return null;
+	public void convertDataJsonToEntity(JSONObject doc) throws JSONException {
+		System.out.println("Class:MotherTransmissionService, method:sentDataToConvert");
+		motherDataConverterService.convertToEntityAndSave(doc);
 	}
 	
 }

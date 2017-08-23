@@ -1,18 +1,26 @@
 package org.opensrp.dashboard.etl.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "elco")
 public class ElcoEntity extends CommonEntity {
+	
+	private ElcoEntity() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	private static final ElcoEntity INSTANCE = new ElcoEntity();
+	
+	public static ElcoEntity getInstance() {
+		return INSTANCE;
+		
+	}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "elco_id_seq")
@@ -83,9 +91,9 @@ public class ElcoEntity extends CommonEntity {
 	
 	private String relationalId;//getting from details
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "household_id", referencedColumnName = "id")
-	private HouseholdEntity household;
+	/*	@ManyToOne(cascade = CascadeType.ALL)
+		@JoinColumn(name = "household_id", referencedColumnName = "id")
+		private HouseholdEntity household;*/
 	
 	public int getId() {
 		return id;
@@ -351,12 +359,12 @@ public class ElcoEntity extends CommonEntity {
 		this.relationalId = relationalId;
 	}
 	
-	public HouseholdEntity getHousehold() {
-		return household;
-	}
-	
-	public void setHousehold(HouseholdEntity household) {
-		this.household = household;
-	}
+	/*	public HouseholdEntity getHousehold() {
+			return household;
+		}
+		
+		public void setHousehold(HouseholdEntity household) {
+			this.household = household;
+		}*/
 	
 }

@@ -5,45 +5,41 @@ import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.ENCCRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ENCCService implements RegisterService<ENCCEntity, ENCCRepository> {
+public class ENCCService implements RegisterService<ENCCEntity> {
 	
+	@Autowired
 	private ENCCRepository enccRepository;
 	
 	public ENCCService() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Autowired
-	public void setEnccRepository(ENCCRepository enccRepository) {
-		this.enccRepository = enccRepository;
-	}
-	
 	@Override
-	public void save(ENCCEntity t, ENCCRepository x) {
+	public void save(ENCCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void delete(ENCCEntity t, ENCCRepository x) {
+	public void delete(ENCCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public void update(ENCCEntity t, ENCCRepository x) {
+	public void update(ENCCEntity t) {
 		// TODO Auto-generated method stub
 		
 	}
 	
 	@Override
-	public ENCCEntity findById(int id, ENCCRepository x) {
+	public ENCCEntity findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	@Override
-	public ENCCEntity findByCaseId(String caseId, ENCCRepository x) {
+	public ENCCEntity findByCaseId(String caseId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
