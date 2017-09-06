@@ -41,6 +41,8 @@
                 <value>org.opensrp.dashboard.etl.entity.ElcoEntity</value>
                 <value>org.opensrp.dashboard.etl.entity.ActionEntity</value>
                 <value>org.opensrp.dashboard.etl.entity.MotherEntity</value>
+                <value>org.opensrp.dashboard.etl.entity.ANCEntity</value>
+                 <value>org.opensrp.dashboard.etl.entity.PNCEntity</value>                 
                 <value>org.opensrp.dashboard.etl.entity.ChildEntity</value>
                 <value>org.opensrp.dashboard.etl.entity.MarkerEntity</value>                
             </list>
@@ -98,6 +100,8 @@
 <bean name="elcoDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ElcoDataConverterService"/>
 <bean name="psrfDataConverterService" class="org.opensrp.dashboard.etl.data.converter.PSRFDataConverterService"/> 
 <bean name="motherDataConverterService" class="org.opensrp.dashboard.etl.data.converter.MotherDataConverterService"/>
+<bean name="motherToANCConverter" class="org.opensrp.dashboard.etl.data.converter.MotherToANCConverter"/>
+<bean name="motherToPNCConverter" class="org.opensrp.dashboard.etl.data.converter.MotherToPNCConverter"/>
 <bean name="ancDataConverterService" class="org.opensrp.dashboard.etl.data.converter.ANCDataConverterService"/>
 <bean name="pncDataConverterService" class="org.opensrp.dashboard.etl.data.converter.PNCDataConverterService"/>
 <bean name="bnfDataConverterService" class="org.opensrp.dashboard.etl.data.converter.BNFDataConverterService"/>

@@ -6,6 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class TransmissionServiceFactory {
 	
 	@Autowired
+	private HouseholdTransmissionService householdTransmissionService;
+	
+	@Autowired
+	private ElcoTransmissionService elcoTransmissionService;
+	
+	@Autowired
 	private MotherTransmissionService motherTransmissionService;
 	
 	@Autowired
@@ -15,9 +21,9 @@ public class TransmissionServiceFactory {
 	
 	private TransmissionServices getTransmissionService(String transmissionServiceType) {
 		if (transmissionServiceType.equals("HouseHold"))
-			transmissionServices = childTransmissionService;
+			transmissionServices = householdTransmissionService;
 		else if (transmissionServiceType.equals("Elco"))
-			transmissionServices = childTransmissionService;
+			transmissionServices = elcoTransmissionService;
 		else if (transmissionServiceType.equals("Mother"))
 			transmissionServices = motherTransmissionService;
 		else if (transmissionServiceType.equals("Child"))

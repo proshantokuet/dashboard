@@ -1,5 +1,7 @@
 package org.opensrp.dashboard.etl.service;
 
+import javax.transaction.Transactional;
+
 import org.opensrp.dashboard.etl.entity.ANCEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.ANCRepository;
@@ -14,9 +16,10 @@ public class ANCService implements RegisterService<ANCEntity> {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Transactional
 	@Override
-	public void save(ANCEntity t) {
-		// TODO Auto-generated method stub
+	public void save(ANCEntity ancEntity) {
+		ancRepository.save(ancEntity);
 		
 	}
 	

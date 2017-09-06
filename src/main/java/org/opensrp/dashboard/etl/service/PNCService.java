@@ -1,5 +1,7 @@
 package org.opensrp.dashboard.etl.service;
 
+import javax.transaction.Transactional;
+
 import org.opensrp.dashboard.etl.entity.PNCEntity;
 import org.opensrp.dashboard.etl.interfaces.RegisterService;
 import org.opensrp.dashboard.etl.repository.PNCRepository;
@@ -14,9 +16,10 @@ public class PNCService implements RegisterService<PNCEntity> {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Transactional
 	@Override
-	public void save(PNCEntity t) {
-		// TODO Auto-generated method stub
+	public void save(PNCEntity pncEntity) {
+		pncRepository.save(pncEntity);
 		
 	}
 	

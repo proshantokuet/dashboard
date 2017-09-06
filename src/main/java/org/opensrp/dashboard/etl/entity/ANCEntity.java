@@ -14,18 +14,7 @@ import javax.persistence.Table;
 @Table(name = "anc")
 public class ANCEntity {
 	
-	private static final ANCEntity INSTANCE = new ANCEntity();
-	
-	public void setMother(MotherEntity mother) {
-		this.mother = mother;
-	}
-	
-	private ANCEntity() {
-		
-	}
-	
-	public static ANCEntity getInstance() {
-		return INSTANCE;
+	public ANCEntity() {
 		
 	}
 	
@@ -74,7 +63,7 @@ public class ANCEntity {
 	
 	private String FWBPCBLDDNR;
 	
-	private String FWBPC1FINARGMT;
+	private String FWBPCFINARGMT;
 	
 	private String mauza;
 	
@@ -86,7 +75,7 @@ public class ANCEntity {
 	
 	private String existing_ELCO;
 	
-	private String FWANC1BLRVIS;
+	private String FWANCBLRVIS;
 	
 	private String FWANCSWLNG;
 	
@@ -112,7 +101,7 @@ public class ANCEntity {
 	
 	private String ELCO;
 	
-	private String FWHR_ANC1;
+	private String FWHR_ANC;
 	
 	private String FWFLAGVALUE;
 	
@@ -323,11 +312,11 @@ public class ANCEntity {
 	}
 	
 	public String getFWBPC1FINARGMT() {
-		return FWBPC1FINARGMT;
+		return FWBPCFINARGMT;
 	}
 	
 	public void setFWBPC1FINARGMT(String fWBPC1FINARGMT) {
-		FWBPC1FINARGMT = fWBPC1FINARGMT;
+		FWBPCFINARGMT = fWBPC1FINARGMT;
 	}
 	
 	public String getMauza() {
@@ -370,12 +359,12 @@ public class ANCEntity {
 		this.existing_ELCO = existing_ELCO;
 	}
 	
-	public String getFWANC1BLRVIS() {
-		return FWANC1BLRVIS;
+	public String getFWANCBLRVIS() {
+		return FWANCBLRVIS;
 	}
 	
-	public void setFWANC1BLRVIS(String fWANC1BLRVIS) {
-		FWANC1BLRVIS = fWANC1BLRVIS;
+	public void setFWANCBLRVIS(String fWANCBLRVIS) {
+		FWANCBLRVIS = fWANCBLRVIS;
 	}
 	
 	public String getFWANCSWLNG() {
@@ -474,12 +463,12 @@ public class ANCEntity {
 		ELCO = eLCO;
 	}
 	
-	public String getFWHR_ANC1() {
-		return FWHR_ANC1;
+	public String getFWHR_ANC() {
+		return FWHR_ANC;
 	}
 	
-	public void setFWHR_ANC1(String fWHR_ANC1) {
-		FWHR_ANC1 = fWHR_ANC1;
+	public void setFWHR_ANC(String fWHR_ANC) {
+		FWHR_ANC = fWHR_ANC;
 	}
 	
 	public String getFWFLAGVALUE() {
@@ -628,6 +617,10 @@ public class ANCEntity {
 	
 	public MotherEntity getMother() {
 		return mother;
+	}
+	
+	public void setMother(MotherEntity mother) {
+		this.mother = mother;
 	}
 	
 }

@@ -8,15 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class PNCRepository implements RegisterRepository<PNCEntity> {
 	
+	@Autowired
 	private SessionFactory sessionFactory;
 	
 	public PNCRepository() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	@Autowired
-	public void setSessionFactory(SessionFactory sf) {
-		this.sessionFactory = sf;
 	}
 	
 	@Override

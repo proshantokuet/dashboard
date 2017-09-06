@@ -12,7 +12,11 @@ public class MotherDataConverterService implements DataConverterService {
 	@Autowired
 	private MotherEntity motherEntity;
 	
-	private MotherToANCExtractor motherToANCExtractor = new MotherToANCExtractor();
+	@Autowired
+	private MotherToANCConverter motherToANCConverter;
+	
+	@Autowired
+	private MotherToPNCConverter motherToPNCConverter;
 	
 	@Autowired
 	private MotherService motherService;
@@ -76,10 +80,10 @@ public class MotherDataConverterService implements DataConverterService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		motherService.save(motherEntity);
 		
-		motherToANCExtractor.ancVisitSplitter(doc);
+		//motherToANCConverter.ancVisitSave(doc);
+		motherToPNCConverter.pncVisitSave(doc);
 		
 	}
 	
